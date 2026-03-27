@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Assignment Dashboard 🎓</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="login" id="loginBox">
+  <div class="login-card">
+    
+    <div id="modeSelection">
+      <h2>Welcome to your Dashboard! 🤗</h2>
+      <p>Please select your account type:</p>
+      <button class="mode-btn" onclick="selectMode('single')">👤 Single User</button>
+      <button class="mode-btn" onclick="selectMode('multi')">👥 Multiple Users</button>
+    </div>
+
+    <div id="nameInputBox" class="hidden">
+      <h2 id="namePromptTitle">Who is logging in? ☺️</h2>
+      <input type="text" id="username" placeholder="Enter your name 😁">
+      <button class="primary-btn" onclick="login()">Let's Go! 🚀</button>
+      <button class="secondary-btn" onclick="goBackToMode()">🔙 Back</button>
+    </div>
+
+  </div>
+</div>
+
+<div class="app hidden" id="app">
+
+  <div class="sidebar">
+    <div class="user-profile">
+      <h3 id="userName"></h3>
+      <div>
+        <button class="icon-btn" onclick="toggleTheme()" id="themeToggle" title="Toggle Dark Mode">🌙</button>
+        <button class="icon-btn" onclick="editUserName()" title="Edit Name">✏️</button>
+      </div>
+    </div>
+
+    <div id="userTabsContainer" class="hidden">
+      <h4 class="sidebar-heading">Folders 📁</h4>
+      <div id="userTabs" class="user-tabs"></div>
+      <button class="add-person-btn" onclick="addPerson()">👥 Add Person</button>
+    </div>
+
+    <button class="add-btn" onclick="openAdd()">➕ Add Assignment</button>
+    <button class="logout-btn" onclick="logout()">🚪 Logout</button>
+  </div>
+
+  <div class="content">
+
+    <div class="stats">
+      <div class="card total-card">📊 Total: <span id="total">0</span></div>
+      <div class="card pending-card">⏳ Pending: <span id="pending">0</span></div>
+      <div class="card tomorrow-card">⏰ Tomorrow: <span id="tomorrow">0</span></div>
+      <div class="card today-card">📅 Today: <span id="today">0</span></div>
+      <div class="card overdue-card">🚨 Overdue: <span id="overdue">0</span></div>
+    </div>
+
+    <div class="progress-section">
+      <div class="progress-text">Task Progress 🎮 <span id="progressText">0%</span></div>
+      <div class="progress-track">
+        <div class="progress-fill" id="progressBar"></div>
+      </div>
+    </div>
+
+    <div id="tasks"></div>
+
+  </div>
+
+</div>
+
+<div class="modal hidden" id="modal">
+  <div class="modal-box">
+    <h3 id="modalTitle">Add Assignment 📝</h3>
+    <input type="text" id="title" placeholder="Assignment Name">
+    <textarea id="desc" placeholder="Assignment Description"></textarea>
+    <input type="date" id="date">
+    <div class="modal-actions">
+      <button class="primary-btn" onclick="saveTask()">💾 Save</button>
+      <button class="secondary-btn" onclick="closeAdd()">❌ Cancel</button>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
